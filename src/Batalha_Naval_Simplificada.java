@@ -9,19 +9,17 @@ public class Batalha_Naval_Simplificada {
         Scanner sc = new Scanner(System.in);
         Random rand = new Random();
 
-        // Inicializa o mar com 'o' (água)
         for (int i = 0; i < 7; i++) {
             for (int j = 0; j < 7; j++) {
                 mar[i][j] = 'o';
             }
         }
 
-        // Sorteia 3 posições de navios (marcado como 'N' internamente)
         for (int i = 0; i < 3; i++) {
             int linha = rand.nextInt(7);
             int coluna = rand.nextInt(7);
             if (mar[linha][coluna] == 'N') {
-                i--; // Evita que navios fiquem na mesma posição
+                i--;
             } else {
                 mar[linha][coluna] = 'N';
             }
@@ -38,11 +36,11 @@ public class Batalha_Naval_Simplificada {
             if (linha >= 0 && linha < 7 && coluna >= 0 && coluna < 7) {
                 if (mar[linha][coluna] == 'N') {
                     System.out.println("BOOOM! Você acertou um navio!");
-                    mar[linha][coluna] = 'X'; // Marca o acerto
+                    mar[linha][coluna] = 'X';
                     naviosEncontrados++;
                 } else {
                     System.out.println("Água! Você errou.");
-                    mar[linha][coluna] = '~'; // Marca o erro
+                    mar[linha][coluna] = '~';
                 }
                 tentativas++;
             } else {
